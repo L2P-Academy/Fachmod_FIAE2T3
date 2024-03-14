@@ -52,7 +52,7 @@ public class VehicleModel {
 	public void setPriceDaily(double priceDaily) {
 		this.priceDaily = priceDaily;
 	}
-	public boolean isAvailable() {
+	public boolean getIsAvailable() {
 		return isAvailable;
 	}
 	public void setAvailable(boolean isAvailable) {

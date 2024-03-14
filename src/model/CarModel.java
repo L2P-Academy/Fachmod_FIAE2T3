@@ -25,12 +25,12 @@ public class CarModel extends VehicleModel{
 	}
 
 
-	public boolean isHasAircon() {
+	public boolean getHasAircon() {
 		return hasAircon;
 	}
 
 
-	public void setHasAircon(boolean hasAircon) {
+	public void setAircon(boolean hasAircon) {
 		this.hasAircon = hasAircon;
 	}
 	
