@@ -1,12 +1,13 @@
-package Model;
+package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class VehicleModel {
 	private int modelYear;
 	private int odometer;
 	private String model;
-	private List<String> color = new List<>("Red", "Black", "White");
+	private List<String> color = new ArrayList<>(List.of("Red", "Black", "White"));
 	private double priceDaily;
 	private boolean isAvailable;
 	
