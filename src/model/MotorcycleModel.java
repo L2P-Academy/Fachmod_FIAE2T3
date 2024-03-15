@@ -4,37 +4,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MotorcycleModel extends VehicleModel {
-	private List<String> licenseType; 
+	private String licenseType;
 	private boolean hasTopCase;
-	
+	private List<String> allLicenses = new ArrayList<>(List.of("A1", "B196", "A2", "A"));
 
 	public MotorcycleModel(int modelYear, int odometer, String model, List<String> color, double priceDaily,
-			boolean isAvailable, int[] licenseKey, boolean hasTopCase) {
+			boolean isAvailable, String licenseType, boolean hasTopCase) {
 		
 		super(modelYear, odometer, model, color, priceDaily, isAvailable);
-		
-		List<String> allLicenses = new ArrayList<>(List.of("A", "A1", "A2", "B196"));
-		for(int licenses : licenseKey) {
-			this.licenseType.add(allLicenses.get(licenses));	
-		}
-		
-		
+		this.licenseType = licenseType;
 		this.hasTopCase = hasTopCase;
 		
 	}
 
 
-	public List<String> getLicenseType() {
+	public String getLicenseType() {
 		return licenseType;
 	}
 
 
-	public void setLicenseType(List<String> licenseType) {
+	public void setLicenseType(String licenseType) {
 		this.licenseType = licenseType;
 	}
 
 
-	public boolean isHasTopCase() {
+	public boolean getHasTopCase() {
 		return hasTopCase;
 	}
 
