@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><Vehicles>
+    <Vehicle>
+        <vehicleType>Motorcycle</vehicleType>
+        <modelYear>2017</modelYear>
+        <odometer>10000</odometer>
+        <model>Yamaha R6</model>
+        <priceDaily>150.5</priceDaily>
+        <isAvailable>true</isAvailable>
+        <licenseType>A</licenseType>
+        <hasTopCase>false</hasTopCase>
+    </Vehicle>
+    <Vehicle>
+        <vehicleType>Car</vehicleType>
+        <modelYear>2017</modelYear>
+        <odometer>60000</odometer>
+        <model>Chevrolet Corvette</model>
+        <priceDaily>230.5</priceDaily>
+        <isAvailable>true</isAvailable>
+        <doors>3</doors>
+        <hasAircon>true</hasAircon>
+    </Vehicle>
+</Vehicles>
