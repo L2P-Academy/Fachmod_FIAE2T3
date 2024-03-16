@@ -20,14 +20,14 @@ class RentController{
 							 boolean isAvailable, int doors, boolean hasAircon) {
 
 		CarModel carModel = new CarModel(modelYear, odometer, model, color, priceDaily, isAvailable, doors, hasAircon);
-		controller.writeVehicleListXML(carModel);
+		controller.writeVehicleListXML(carModel, "Car");
 	}
 	public void createNewMotorcycle(int modelYear, int odometer, String model, List<String> color, double priceDaily,
 									boolean isAvailable, String licenseType, boolean hasTopCase) {
 
 		MotorcycleModel motorcycleModel = new MotorcycleModel(modelYear, odometer, model, color, priceDaily, isAvailable,
 				licenseType, hasTopCase);
-		controller.writeVehicleListXML(motorcycleModel);
+		controller.writeVehicleListXML(motorcycleModel, "Motorcycle");
 	}
 	public void deleteCar(CarModel car) {
 	}
