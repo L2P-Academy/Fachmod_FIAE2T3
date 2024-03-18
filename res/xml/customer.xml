@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><Customers>
+    <Customer>
+        <name>Max Mustermann</name>
+        <dayOfBirth>1710770419802</dayOfBirth>
+        <registeredAt>1710770419802</registeredAt>
+        <address>Musterstrasse</address>
+    </Customer>
+</Customers>
