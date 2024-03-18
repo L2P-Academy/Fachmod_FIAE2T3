@@ -141,7 +141,7 @@ public class XMLController {
         vehicle.appendChild(createXMLElement(doc, "model", model.getModel()));
 
         for (String color : colors) {
-            vehicle.appendChild(createXMLElement(doc, "color", color));
+            vehicle.appendChild(createXMLElement(doc, "colour", color));
         }
 
         vehicle.appendChild(createXMLElement(doc, "priceDaily", String.valueOf(model.getPriceDaily())));
@@ -185,7 +185,7 @@ public class XMLController {
             String odometer = element.getElementsByTagName("odometer").item(0).getTextContent();
             String model = element.getElementsByTagName("model").item(0).getTextContent();
 
-            NodeList colorsNodeList = element.getElementsByTagName("color");
+            NodeList colorsNodeList = element.getElementsByTagName("colour");
             String[] colorsArray = new String[colorsNodeList.getLength()];
             for (int j = 0; j < colorsNodeList.getLength(); j++){
                 String color = colorsNodeList.item(j).getTextContent();
