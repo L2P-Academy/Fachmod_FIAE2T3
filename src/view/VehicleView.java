@@ -84,12 +84,4 @@ public class VehicleView extends JFrame {
 			this.setVisible(true);
 		
 		}
-		
-		
-		//Für Testzwecke:
-
-		public static void main(String[] args) {
-			VehicleView view = new VehicleView();
-	  }
-
 }
