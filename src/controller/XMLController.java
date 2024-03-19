@@ -47,7 +47,7 @@ public class XMLController {
             // Check if file already exists
             if (outputFile.exists()) {
                 // parse the content of the existing file
-                doc = docBuilder.parse(vehicleFile);
+                doc = docBuilder.parse(outputFile);
             } else {
                 // create new file
                 doc = docBuilder.newDocument();
