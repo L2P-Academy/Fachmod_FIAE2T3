@@ -1,13 +1,17 @@
 package app;
 
+import view.CustomerView;
 import view.VehicleView;
 
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+    
+    // Zu Testzwecken, später korrekt implementieren
+		CustomerView myCustomerView = new CustomerView();
 		
-		VehicleView view = new VehicleView();
+		// VehicleView view = new VehicleView();
+
 	}
 
 }
