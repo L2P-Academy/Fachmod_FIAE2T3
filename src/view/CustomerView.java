@@ -19,10 +19,16 @@ public class CustomerView extends JFrame{
     private JTextField dateOfBirthTextField;
     private JTextField addressTextField;
     private JButton saveButton;
+    private JPanel CustomerView;
     private CustomerModel newCustomer;
     private final XMLController myXMLController = new XMLController();
 
     public CustomerView() {
+        setContentPane(CustomerView);
+        setTitle("Create New Customer");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setSize(500, 500);
+        setVisible(true);
 
         saveButton.addActionListener(new ActionListener() {
             @Override
@@ -49,4 +55,5 @@ public class CustomerView extends JFrame{
             }
         });
     }
+
 }
