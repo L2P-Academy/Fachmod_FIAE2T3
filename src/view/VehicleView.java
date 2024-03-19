@@ -12,76 +12,66 @@ import java.util.Arrays;
 import java.util.List;
 
 public class VehicleView extends JFrame {
+
+	public VehicleView() {
 		
-		public VehicleView() {
-			
-			//Erstellung des Hintergrundpanels + Alignment
-			
-			JPanel mPanel = new JPanel();
-			mPanel.setLayout(new BorderLayout());
-			mPanel.setBackground(Color.darkGray);
-			
-			//Erstellung des linken Panels
+		//Initialisierung
 		
-			JPanel lPanel = new JPanel();
-			mPanel.add(lPanel, BorderLayout.WEST);
-			
-			//Liste mit Fahrzeugen und Hinzufügen zu linkem Panel
-			JTextArea vehicleList = new JTextArea(
-				    "Fahrzeug A \n" +
-				    "Fahrzeug B \n" +
-				    "Fahrzeug C \n" +
-				    "Fahrzeug D \n"
-				);
-			vehicleList.setFont(new Font("Serif", Font.ITALIC, 18));
-			vehicleList.setLineWrap(true);
-			vehicleList.setBackground(Color.lightGray);
-			JScrollPane scrollPane = new JScrollPane(vehicleList); 
-			vehicleList.setEditable(false);
-			lPanel.setBackground(Color.lightGray);
-			lPanel.add(scrollPane);
-			
-			//Erstellen des unteren Panels + Hinzufügen von Button
-			JPanel uPanel = new JPanel();
-			uPanel.setBackground(Color.darkGray);
-			mPanel.add(uPanel, BorderLayout.SOUTH);
-			
-			//Button für RentedView mit ActionListener
-			JButton rentedVehicleButton = new JButton("Vermietete Fahrzeuge");
-			rentedVehicleButton.setBackground(Color.white);
-			uPanel.add(rentedVehicleButton);
-			rentedVehicleButton.addActionListener(new ActionListener() {
-			    @Override
-			    public void actionPerformed(ActionEvent e) {
-			        
-			        VehicleView.this.setVisible(false);
-			        RentedView opening = new RentedView();
-			        opening.setVisible(true);
-			    }
-	        });
+		setTitle("Fahrzeugübersicht");
+		setSize(1200, 800);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-			/*
-		//Erstellen der Tabelle für Autos + Hinzufügen zu lPanel FUNKTONIERT NICHT, SOBALD DIE GRÖßE verändert wird WARUM?
-			String[] columnNames = {"VehicleType", "Model", "RentStatus", "Picture"};
-			//Für Testzwecke!!!!
-			Object[][] data = {
-					{"Model 1", true, "picture"},
-					{"Model 2", false, "picture"},
-					{"Model 3", true, "picture"},
-					{"Model 4", false, "picture"}
-			};
-			
-			JTable overview = new JTable(data, columnNames);
-			JScrollPane secondScrollPane = new JScrollPane(overview);
-			lPanel.add(secondScrollPane);
-			*/
-			
+
+		// Erstellung des Hintergrundpanels + Alignment
+
+		JPanel mainPanel = new JPanel();
+		mainPanel.setLayout(new BorderLayout());
+		mainPanel.setBackground(Color.darkGray);
 		
-			this.add(mPanel);
+		JMenuBar jMenuBar = new JMenuBar();
+
+		// Erstellung des linken Panels
+
+		JPanel westPanel = new JPanel();
+		mainPanel.add(westPanel, BorderLayout.WEST);
+
+
+		// Erstellen des unteren Panels + Hinzufügen von Button
+		JPanel southPanel = new JPanel();
+		southPanel.setBackground(Color.darkGray);
+		mainPanel.add(southPanel, BorderLayout.SOUTH);
+
+		// Button für RentedView mit ActionListener
+		JButton rentedVehicleButton = new JButton("Vermietete Fahrzeuge");
+		rentedVehicleButton.setBackground(Color.white);
+		southPanel.add(rentedVehicleButton);
+		rentedVehicleButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				VehicleView.this.setVisible(false);
+				RentedView rentedView = new RentedView();
+				rentedView.setVisible(true);
+			}
+		});
+
 		
-			this.setSize(400, 600);
-			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			this.setVisible(true);
+		String[] columnNames = {"VehicleType",
+		 "Model", "RentStatus", "Picture"};
+		//Für Testzwecke!!!!
+		String[][] data = {
+		 {"Model 1", "false", "picture", "lol"}, {"Model 2", "true", "picture", "lol"}, {"Model 3",
+		 "true", "picture", "lol"}, {"Model 4", "false", "picture", "lol"} };
+		 
+		 JTable overview = new JTable(data, columnNames);
+		 JScrollPane secondScrollPane = new JScrollPane(overview);
+		 westPanel.add(secondScrollPane);
+		 
+
 		
-		}
+		
+		getContentPane().add(mainPanel);
+		setVisible(true);
+
+	}
 }
