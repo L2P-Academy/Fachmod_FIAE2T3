@@ -95,9 +95,9 @@ public class XMLController {
 
     }
 
-    public ArrayList<String[]> readCustomerFromList(){
+    public String[][] readCustomerFromList(){
         Document doc = loadXMLDocument(customerFile, "Customers");
-        ArrayList<String[]> vehicleData = new ArrayList<>();
+        ArrayList<String[]> customerData = new ArrayList<>();
         Element rootElement = doc.getDocumentElement();
 
         // Get all Vehicle nodes
@@ -113,9 +113,11 @@ public class XMLController {
             String address = element.getElementsByTagName("address").item(0).getTextContent();
 
             String[] tempData = {name, dayOfBirth, registeredAt, address};
-            vehicleData.add(tempData);
+            customerData.add(tempData);
         }
-        return vehicleData;
+        String[][] data = new String[customerData.size()][];
+        customerData.toArray(data);
+        return data;
     }
 
     public void writeVehicleToListXML(VehicleModel model, String type) {
@@ -140,9 +142,7 @@ public class XMLController {
 
         vehicle.appendChild(createXMLElement(doc, "model", model.getModel()));
 
-        for (String color : colors) {
-            vehicle.appendChild(createXMLElement(doc, "colour", color));
-        }
+        vehicle.appendChild(createXMLElement(doc, "colour", model.getColor().get(0)));
 
         vehicle.appendChild(createXMLElement(doc, "priceDaily", String.valueOf(model.getPriceDaily())));
 
@@ -165,8 +165,8 @@ public class XMLController {
         transformToXML(doc, vehicleFile);
     }
 
-    public ArrayList<String[][]> readVehicleFromListXML() {
-        ArrayList<String[][]> vehicleData = new ArrayList<>();
+    public String[][] readVehicleFromListXML() {
+        ArrayList<String[]> vehicleData = new ArrayList<>();
         Document doc = loadXMLDocument(vehicleFile, "Vehicles");
         Element rootElement = doc.getDocumentElement();
 
@@ -174,7 +174,7 @@ public class XMLController {
         NodeList nodeList = rootElement.getElementsByTagName("Vehicle");
 
         // iterate over all Vehicle nodes
-        for (int i = 0 ; i < nodeList.getLength() ; i++){
+        for (int i = 0 ; i < nodeList.getLength() ; i++) {
             // Get the node from index i
             Node node = nodeList.item(i);
             Element element = (Element) node;
@@ -184,13 +184,7 @@ public class XMLController {
             String modelYear = element.getElementsByTagName("modelYear").item(0).getTextContent();
             String odometer = element.getElementsByTagName("odometer").item(0).getTextContent();
             String model = element.getElementsByTagName("model").item(0).getTextContent();
-
-            NodeList colorsNodeList = element.getElementsByTagName("colour");
-            String[] colorsArray = new String[colorsNodeList.getLength()];
-            for (int j = 0; j < colorsNodeList.getLength(); j++){
-                String color = colorsNodeList.item(j).getTextContent();
-                colorsArray[j] = color;
-            }
+            String colour = element.getElementsByTagName("colour").item(0).getTextContent();
             String priceDaily = element.getElementsByTagName("priceDaily").item(0).getTextContent();
             String isAvailable = element.getElementsByTagName("isAvailable").item(0).getTextContent();
 
@@ -198,15 +192,17 @@ public class XMLController {
             if (vehicleType.equals("Car")) {
                 String doors = element.getElementsByTagName("doors").item(0).getTextContent();
                 String hasAircon = element.getElementsByTagName("hasAircon").item(0).getTextContent();
-                String[][] dataTemp = {{vehicleType}, {modelYear}, {odometer}, {model}, colorsArray, {priceDaily}, {isAvailable}, {doors}, {hasAircon}};
+                String[] dataTemp = {vehicleType, modelYear, odometer, model, colour, priceDaily, isAvailable, doors, hasAircon};
                 vehicleData.add(dataTemp);
-            }else {
+            } else {
                 String licenseType = element.getElementsByTagName("licenseType").item(0).getTextContent();
                 String hasTopCase = element.getElementsByTagName("hasTopCase").item(0).getTextContent();
-                String[][] dataTemp = {{vehicleType}, {modelYear}, {odometer}, {model}, colorsArray, {priceDaily}, {isAvailable}, {licenseType}, {hasTopCase}};
+                String[] dataTemp = {vehicleType, modelYear, odometer, model, colour, priceDaily, isAvailable, licenseType, hasTopCase};
                 vehicleData.add(dataTemp);
             }
         }
-        return vehicleData;
+        String[][] data = new String[vehicleData.size()][];
+        vehicleData.toArray(data);
+        return data;
     }
 }

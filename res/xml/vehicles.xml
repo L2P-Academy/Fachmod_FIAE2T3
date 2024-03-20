@@ -4,8 +4,7 @@
         <modelYear>2017</modelYear>
         <odometer>60000</odometer>
         <model>Chevrolet Corvette</model>
-        <color>Blue</color>
-        <color>Red</color>
+        <colour>Blue</colour>
         <priceDaily>230.5</priceDaily>
         <isAvailable>true</isAvailable>
         <doors>3</doors>
@@ -16,8 +15,7 @@
         <modelYear>2017</modelYear>
         <odometer>10000</odometer>
         <model>Yamaha R6</model>
-        <color>Red</color>
-        <color>Blue</color>
+        <colour>Red</colour>
         <priceDaily>150.5</priceDaily>
         <isAvailable>true</isAvailable>
         <licenseType>A</licenseType>
